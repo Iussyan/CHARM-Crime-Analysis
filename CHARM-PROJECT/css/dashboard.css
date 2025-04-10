@@ -611,5 +611,561 @@ input[type="text"]:focus {
     box-sizing: border-box;
 }
 
-#toggle-circle {
+#toggle-circle {}
+
+/*ENCODE.HTML CSS*/
+
+.table-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    background-color: #dee4e7;
+    margin-left: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 50px;
+}
+
+.encode-btn {
+    background-color: #dee4e7;
+    display: inline-block;
+    padding: 10px;
+
+}
+
+.encode-crud {
+    display: inline-block;
+}
+
+/* Basic reset for the .btn-crud button */
+/* Basic reset for the .btn-crud button */
+/* Basic styling for the .btn-crud button */
+.btn-crud {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: 2px solid #262c33;
+    /* Subtle border to match the theme */
+    background-color: #dee4e7;
+    /* Light background color */
+    color: #262c33;
+    /* Dark text for good contrast */
+    border-radius: 8px;
+    /* Rounded corners */
+    cursor: pointer;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    /* Smooth transitions for subtle hover effects */
+}
+
+/* Hover effect */
+.btn-crud:hover {
+    background-color: #262c33;
+    /* Dark background on hover */
+    color: #dee4e7;
+    /* Light text color on hover */
+    border-color: #dee4e7;
+    /* Light border on hover */
+}
+
+/* Focus effect for accessibility */
+.btn-crud:focus {
+    outline: 2px solid #dee4e7;
+    /* Subtle focus outline */
+}
+
+/* Active state (when the button is clicked) */
+.btn-crud:active {
+    transform: translateY(1px);
+    /* Button moves slightly down on click */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Page container */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    /* Light background *
+color: #333; /* Default text color */
+}
+
+.encode-table {
+
+    background-color: #fff;
+    /* White background for the table */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+}
+
+/* Header styling */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #262c33;
+    /* Dark color for title */
+    font-weight: bold;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #dee4e7;
+    /* Light border to match the theme */
+}
+
+/* Header Row Styling */
+th {
+    background-color: #262c33;
+    /* Dark background for headers */
+    color: #dee4e7;
+    /* Light text for good contrast */
+    font-weight: bold;
+    letter-spacing: 1px;
+    /* Slight letter spacing for aesthetics */
+}
+
+/* Zebra Striping for Rows */
+tr:nth-child(even) {
+    background-color: #dee4e7;
+    /* Light grey background for even rows */
+}
+
+/* Hover Effect on Rows */
+tr:hover {
+    background-color: #e3e9f1;
+    /* Subtle hover effect on rows */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    table {
+        font-size: 14px;
+        /* Smaller font size on mobile */
+    }
+
+    th,
+    td {
+        padding: 8px;
+        /* Slightly smaller padding for mobile */
+    }
+}
+
+a {
+    display: inline-block;
+    /* Makes the link behave like a button */
+    text-decoration: none;
+    /* Remove underline */
+    color: inherit;
+    /* Inherit the color from the parent element */
+    cursor: pointer;
+    /* Change the cursor to a pointer on hover */
+    padding: 0;
+    /* Remove any default padding */
+    margin: 0;
+    /* Remove any default margin */
+}
+
+/* ANALYSIS.HTML*/
+
+.analysis-graph {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 0px;
+
+
+}
+
+.graph-box {
+
+    display: flex;
+    flex-direction: column;
+    /* Stack content vertically */
+    align-items: center;
+    /* Center-align content */
+    text-align: center;
+    height: 300px;
+    margin-top: 10px;
+    background-color: #dee4e7;
+    border-radius: 10px;
+    margin-left: 10px;
+
+    border: solid black;
+    margin-right: 10px;
+    padding-bottom: 40px;
+}
+
+.graph-box h2 {
+    font-size: 1.2rem;
+    /* Control heading size */
+    margin-bottom: 10px;
+}
+
+.graph-box img {
+    max-width: 25%;
+    /* Ensure images are responsive */
+    height: auto;
+    /* Maintain aspect ratio */
+    box-shadow: 2px 10px 5px 10px #dee4e7;
+    object-fit: contain;
+    /* Ensure images fit within their containers without stretching */
+}
+
+.login-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100;
+
+}
+
+.login-hf {
+    background-color: #262c33;
+    height: 110px;
+}
+
+.login-container {
+    background-color: #dee4e7;
+    height: 510px;
+    place-content: center;
+    padding-left: 400px;
+
+}
+
+.login-box {
+    width: 800px;
+    height: 300px;
+    display: grid;
+    border-radius: 20px;
+
+    grid-template-columns: 1.25fr 2.75fr;
+
+
+}
+
+.login-image {
+
+    place-content: center;
+    padding-left: 100px;
+}
+
+.login-txtbox {
+    display: grid;
+
+    grid-template-columns: 1fr;
+}
+
+.txtbox-header {
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    place-content: center;
+    justify-content: center;
+    padding-left: 190px;
+    padding-bottom: 0px;
+    padding-top: 20px;
+
+    height: 80px;
+    width: 100%;
+}
+
+.txtbox {
+
+    height: 150px;
+    width: 100%;
+    place-content: center;
+    padding-right: 50px;
+    padding-left: 70px;
+}
+
+.txtbox-btn {
+
+    height: 60px;
+    width: 100%;
+    padding-right: 50px;
+    padding-top: 0px;
+}
+
+.login-img {
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+
+}
+
+label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 6px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.btn-login {
+    background-color: black;
+    color: white;
+    padding: 12px 24px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    float: right;
+
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-login:hover {
+    background-color: white;
+    color: black;
+
+}
+
+.chart {
+    width: 200px;
+    height: 100px;
+    background-color: #fff;
+    /* Add a white background */
+    border: 2px solid #2c3e50;
+    /* Add a border */
+    border-radius: 12px;
+    /* Rounded corners */
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Soft shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+
+
+}
+
+.chart:hover {
+    transform: scale(1.05);
+    /* Grow the chart */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Optional: shadow effect */
+    cursor: pointer;
+    /* Optional: show pointer to indicate click */
+}
+
+.chart-box {
+    width: 200px;
+    height: 50px;
+    background-color: #fff;
+    /* Add a white background */
+    border: 2px solid #2c3e50;
+    /* Add a border */
+    border-radius: 12px;
+    /* Rounded corners */
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Soft shadow */
+    padding-left: 50px;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding-right: 0px;
+}
+
+.chart-box:hover {
+    transform: scale(1.05);
+    /* Grow the chart */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Optional: shadow effect */
+    cursor: pointer;
+    /* Optional: show pointer to indicate click */
+}
+
+.a-chart {
+    display: block;
+    width: 500px;
+    height: 300px;
+
+    text-decoration: none;
+    /* Remove underline if needed */
+}
+
+.a-chart-b {
+    display: block;
+    width: 500px;
+    height: 250px;
+    padding-left: 120px;
+    text-decoration: none;
+    /* Remove underline if needed */
+}
+
+
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+/* The popup form - hidden by default */
+@keyframes slideIn {
+    from {
+        transform: translate(-50%, 100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+#myForm {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    opacity: 0;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    background-color: white;
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Slide-in effect */
+#myForm.show {
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+#myForm-b {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    opacity: 0;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    background-color: white;
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Slide-in effect */
+#myForm-b.show {
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+/* Add styles to the form container */
+.form-container {
+    padding: 20px;
+    background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text],
+.form-container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus,
+.form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+    background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover,
+.open-button:hover {
+    opacity: 1;
+}
+
+.crime-text {
+    width: 300px;
+}
+
+/* Style for Date Input */
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    font-size: 16px;
+    color: #333;
+    box-sizing: border-box;
+}
+
+input[type="date"]:focus {
+    border-color: #f1f1f1;
+    /* Green border when focused */
+    outline: none;
+    background-color: #ddd;
+    /* Light green background when focused */
+}
+
+/* Style for Time Input */
+input[type="time"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    font-size: 16px;
+    color: #333;
+    box-sizing: border-box;
+}
+
+input[type="time"]:focus {
+    border-color: #f1f1f1;
+    /* Green border when focused */
+    outline: none;
+    background-color: #ddd;
+    /* Light green background when focused */
+}
+
+/* Add placeholders to look nice */
+input[type="date"]::placeholder,
+input[type="time"]::placeholder {
+    color: #aaa;
 }
