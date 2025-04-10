@@ -1,40 +1,268 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-           Crime Data
-        </title>
-        <link rel="stylesheet" href="css/dashboard.css">
-    </head>
-    <body>
-        <div class="grid-container">
-            <div class="dashboard">
-                <div class="headerss">
+
+<head>
+    <link rel="stylesheet" href="leaflet.css" />
+    <script src="leaflet.js"></script>
+    <title>
+        Crime Data
+    </title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="dashboard">
+            <div class="headerss">
                 <p class="fontts">Crime reporting</p>
-                </div>
-                <div class="iconss">
-                    <img src="image/flower.jpg" class="user-icon">
-                    <p>USER</p>
-                </div>
-                
-                <div class="choices">
-                <ul>
-                    <li><a href="dashboard.html"><img src="image/icons8-dashboard-24.png" alt=""> &nbsp; <span>Dashboard</span></a> </li>
-                    <li><a href="encode.html"><img src="image/icons8-document-64.png" alt=""> &nbsp;<span>Crime Data</span> </a></li>
-                    <li><a href="mapping.html"><img src="image/icons8-place-marker-24.png" alt=""> &nbsp;<span>Crime Mapping</span></a> </li>
-                    <li><a href="analysis.html"><img src="image/icons8-graph-50.png" alt=""> &nbsp;<span>Crime Analysis</span> </a></li>
-                    <li><a href="users.html"><img src="image/icons8-user-48.png" alt=""> &nbsp;<span>Manage Users</span> </a></li>
-                    <li><img src="image/icons8-logout-50.png" alt=""> &nbsp; <span>Logout</span></li>
-                  </ul>
-                  </div>
             </div>
-            <div class="board">
-                <div class="dashboardss">
-                   <p>Crime Mapping</p>
-                </div>  
-                <div>
-                    
-                </div>
+            <div class="iconss">
+                <img src="image/flower.jpg" class="user-icon">
+                <p>USER</p>
+            </div>
+
+            <div class="choices">
+                <ul>
+                    <li><a href="dashboard.html"><img src="image/icons8-dashboard-24.png" alt=""> &nbsp;
+                            <span>Dashboard</span></a> </li>
+                    <li><a href="encode.html"><img src="image/icons8-document-64.png" alt=""> &nbsp;<span>Crime
+                                Data</span> </a></li>
+                    <li><a href="mapping.html"><img src="image/icons8-place-marker-24.png" alt=""> &nbsp;<span>Crime
+                                Mapping</span></a> </li>
+                    <li><a href="analysis.html"><img src="image/icons8-graph-50.png" alt=""> &nbsp;<span>Crime
+                                Analysis</span> </a></li>
+                    <li><a href="users.html"><img src="image/icons8-user-48.png" alt=""> &nbsp;<span>Manage Users</span>
+                        </a></li>
+                    <li><img src="image/icons8-logout-50.png" alt=""> &nbsp; <span>Logout</span></li>
+                </ul>
+            </div>
         </div>
-     </body>
-  </html>
+        <div class="board">
+            <div class="dashboardss">
+                <p>Crime Mapping</p>
+            </div>
+            <div id="map">
+                <script>
+                    // Add a GeoJSON layer to the map
+                    var geojsonData = {
+                        "type": "FeatureCollection",
+                        "features": [{
+                            "type": "Feature",
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[
+                                    [121.03463654190193, 14.699551971910921],
+                                    [121.03427672507667, 14.699755052524097],
+                                    [121.03295204376877, 14.699784473131402],
+                                    [121.03231837785563, 14.699294553687778],
+                                    [121.03172389757157, 14.699243951628816],
+                                    [121.0311246614188, 14.69930375408876],
+                                    [121.0311246614188, 14.699501562071774],
+                                    [121.0307037693808, 14.699499261987071],
+                                    [121.03078461870348, 14.699062244105846],
+                                    [121.03049926815413, 14.698954139548192],
+                                    [121.02935786598312, 14.699255452137677],
+                                    [121.02828816550084, 14.700194856475505],
+                                    [121.02780825024291, 14.700197346325496],
+                                    [121.02759742363173, 14.700290812199952],
+                                    [121.02758336852503, 14.7005185289011],
+                                    [121.02709319665752, 14.700639184663146],
+                                    [121.0269754851326, 14.701115009563665],
+                                    [121.02644274054711, 14.701957981155815],
+                                    [121.02623689600699, 14.701854509225655],
+                                    [121.02590624806561, 14.702241744798428],
+                                    [121.02458598585946, 14.702171195822459],
+                                    [121.02311305375503, 14.702383900564897],
+                                    [121.02224105085065, 14.702322758167455],
+                                    [121.02209679762404, 14.70379330583124],
+                                    [121.02165917535706, 14.7039579187566],
+                                    [121.02131069835997, 14.703898344566113],
+                                    [121.02125072791483, 14.702976510268172],
+                                    [121.02016477636312, 14.703428021393151],
+                                    [121.02014694730735, 14.703638099181546],
+                                    [121.01899121424168, 14.70333082112117],
+                                    [121.01849524234456, 14.703584795827496],
+                                    [121.01799278712588, 14.703395098680033],
+                                    [121.01772048884345, 14.70447370502869],
+                                    [121.01771886801998, 14.704489382407331],
+                                    [121.01881261436051, 14.70632892202552],
+                                    [121.01886934322664, 14.707169220753897],
+                                    [121.01859207569379, 14.708201913142418],
+                                    [121.01791749582418, 14.70893276102359],
+                                    [121.01763061021558, 14.709895330225876], 
+                                    [121.01757760321249, 14.710741131655297], 
+                                    [121.01801825664216, 14.71179468660074], 
+                                    [121.01880273510727, 14.712357484898163], 
+                                    [121.01934901188395, 14.712337459789978], 
+                                    [121.02008162401455, 14.711936132954449], 
+                                    [121.02130997431743, 14.712617458415096], 
+                                    [121.02174521242534, 14.713876016571163], 
+                                    [121.02201588993432, 14.71561086483122], 
+                                    [121.02328157446766, 14.716213269628739], 
+                                    [121.02362680981787, 14.716681997553906], 
+                                    [121.02455878318892, 14.716368467266264], 
+                                    [121.02520176404431, 14.71688691447605], 
+                                    [121.02892563859717, 14.715561634804459], 
+                                    [121.02933423291188, 14.714640234311318], 
+                                    [121.02944970522515, 14.714102827439817], 
+                                    [121.03020044515586, 14.71243512806248], 
+                                    [121.03098169330195, 14.711494026952181], 
+                                    [121.03096614900187, 14.710482400367667], 
+                                    [121.03113047497214, 14.710400782729707], 
+                                    [121.03165898281674, 14.710690739987712], 
+                                    [121.03266048301492, 14.710695035647461], 
+                                    [121.03351446790816, 14.710373403687996], 
+                                    [121.03351002666659, 14.710132846232113], 
+                                    [121.03391611305568, 14.709513898152238], 
+                                    [121.0362519223367, 14.709337977364328], 
+                                    [121.03669632352216, 14.708854176357704], 
+                                    [121.03701609299736, 14.709109770148089], 
+                                    [121.03822411095427, 14.709404024816408], 
+                                    [121.03845283494076, 14.709227901636567], 
+                                    [121.03876378192467, 14.708359996647303], 
+                                    [121.03968723915187, 14.707975826630786], 
+                                    [121.04015579022996, 14.708061740895658], 
+                                    [121.04127131645271, 14.7075508070795], 
+                                    [121.04135657578666, 14.706518197923842], 
+                                    [121.0418673187068, 14.70517792220545], 
+                                    [121.04547448226839, 14.705252999752759], 
+                                    [121.04567862807494, 14.704568490921162], 
+                                    [121.0461349541535, 14.704212611835658], 
+                                    [121.04739129559687, 14.70368998666845], 
+                                    [121.04792084671448, 14.702346423499904], 
+                                    [121.04726354283156, 14.702352867236598], 
+                                    [121.04719914481842, 14.702086525980164], 
+                                    [121.04806561741549, 14.700861517555566], 
+                                    [121.04828967073126, 14.700029298613657], 
+                                    [121.04774783915155, 14.699490166258556], 
+                                    [121.04612900628553, 14.700538358642646], 
+                                    [121.04467931801986, 14.699782766545113], 
+                                    [121.04457626332817, 14.69948378601454], 
+                                    [121.04350213299358, 14.698501643176414], 
+                                    [121.04202806062142, 14.698691309048286], 
+                                    [121.041529411527, 14.699333834455416], 
+                                    [121.04126658564434, 14.699224135124112], 
+                                    [121.04064730025425, 14.699803973786672], 
+                                    [121.03977020296145, 14.699553821679501], 
+                                    [121.03968335667213, 14.699385170754766], 
+                                    [121.03870042976456, 14.699727235518324], 
+                                    [121.03575898150518, 14.699135850774269], 
+                                    [121.0355772638348, 14.699491212256149], 
+                                    [121.03481681488574, 14.699829378292563], 
+                                    [121.03463654190193, 14.699551971910921]
+                                ]]
+                            }, "id": "acb2a390-cb8e-4248-a128-3e649a5f6a60", "properties": {}
+                        }], "metadata": { "tileStats": { "layers": [{ "layer": "San Bartolome", "sourceType": "geojson", "attributes": [], "attributeCount": 0, "geometry": ["Polygon"] }], "layerCount": 1 } }
+                    };
+
+                    // Define the bounds for the map based on the GeoJSON polygon
+                    var geojsonBounds = L.geoJSON(geojsonData).getBounds(); // Get bounds of the GeoJSON data
+
+                    // Initialize the map with restricted zoom and bounds
+                    var map = L.map('map', {
+                        center: [14.7007, 121.0349], // Center the map on the GeoJSON bounds
+                        zoom: 19,        // Initial zoom level
+                        minZoom: 17,     // Minimum zoom level
+                        maxZoom: 19      // Maximum zoom level
+                    });
+
+                    // Set the maximum bounds for the map to fit the GeoJSON polygon
+                    map.setMaxBounds(geojsonBounds);
+
+                    // Prevent the user from panning outside the bounds
+                    map.on('drag', function () {
+                        map.panInsideBounds(bounds, { animate: false });
+                    });
+
+                    // Add a tile layer to the map
+                    L.tileLayer('https://api.maptiler.com/maps/openstreetmap/256/{z}/{x}/{y}.jpg?key=kmDDNhXUXCZxn5Sfpecq', {
+                        maxZoom: 19,
+                        attribution: '© <a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+                    }).addTo(map);
+
+                
+                    var geojsonLayer = L.geoJSON(geojsonData, {
+                        style: {
+                            color: '#000000', /* Gray */
+                            fillColor: '#ffffff', /* Lighter shade of gray */
+                            fillOpacity: 0
+                        }
+                    }).addTo(map);
+
+                    // Create a button to toggle the GeoJSON layer visibility
+                    var toggleGeoJSONButton = L.control({ position: 'topleft' });
+
+                    toggleGeoJSONButton.onAdd = function () {
+                        var div = L.DomUtil.create('div', 'toggle-geojson-button');
+                        div.innerHTML = '<button id="toggle-geojson">Toggle Boundary</button>';
+                        return div;
+                    };
+
+                    toggleGeoJSONButton.addTo(map);
+
+                    // Add event listener to the GeoJSON toggle button
+                    var isGeoJSONVisible = true;
+                    document.getElementById('toggle-geojson').addEventListener('click', function () {
+                        if (isGeoJSONVisible) {
+                            map.removeLayer(geojsonLayer);
+                        } else {
+                            geojsonLayer.addTo(map);
+                        }
+                        isGeoJSONVisible = !isGeoJSONVisible;
+                    });
+
+                    // Create a button to recenter the map
+                    var recenterButton = L.control({ position: 'topleft' });
+
+                    recenterButton.onAdd = function () {
+                        var div = L.DomUtil.create('div', 'recenter-button');
+                        div.innerHTML = '<button id="recenter-map">Recenter Map</button>';
+                        return div;
+                    };
+
+                    recenterButton.addTo(map);
+
+                    // Add event listener to the recenter button
+                    document.getElementById('recenter-map').addEventListener('click', function () {
+                        map.setView([14.7007, 121.0349], 19); // Recenter to San Bartolome Hall
+                    });
+
+                    // Add a marker to San Bartolome Hall
+                    var marker = L.marker([14.7007, 121.0347], {
+                        icon: L.icon({
+                            iconUrl: 'image/icons8-place-marker-24.png', // Path to your marker icon
+                            iconSize: [25, 30], // Size of the icon
+                            iconAnchor: [12, 41], // Point of the icon which will correspond to marker's location
+                            popupAnchor: [0, -41] // Point from which the popup should open relative to the iconAnchor
+                        })
+                    });
+
+                    marker.addTo(map).bindPopup('San Bartolome Barangay Hall').openPopup();
+
+                    // Create a button to toggle the marker visibility
+                    var toggleMarkerButton = L.control({ position: 'topleft' });
+
+                    toggleMarkerButton.onAdd = function () {
+                        var div = L.DomUtil.create('div', 'toggle-marker-button');
+                        div.innerHTML = '<button id="toggle-marker">Toggle Marker</button>';
+                        return div;
+                    };
+
+                    toggleMarkerButton.addTo(map);
+
+                    // Add event listener to the marker toggle button
+                    var isMarkerVisible = true; // Initially, the marker is not visible
+                    document.getElementById('toggle-marker').addEventListener('click', function () {
+                        if (isMarkerVisible) {
+                            map.removeLayer(marker);
+                        } else {
+                            marker.addTo(map);
+                        }
+                        isMarkerVisible = !isMarkerVisible;
+                    });
+                </script>
+            </div>
+        </div>
+</body>
+
+</html>
