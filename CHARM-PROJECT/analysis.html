@@ -1,75 +1,114 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>
-           Crime Analysis
-        </title>
+        <title>Crime Analysis</title>
         <link rel="stylesheet" href="css/dashboard.css">
     </head>
     <body>
         <div class="grid-container">
             <div class="dashboard">
                 <div class="headerss">
-                <p class="fontts">Crime reporting</p>
+                    <p class="fontts">Crime reporting</p>
                 </div>
                 <div class="iconss">
                     <img src="image/flower.jpg" class="user-icon">
                     <p>USER</p>
                 </div>
-                
                 <div class="choices">
-                <ul>
-                    <li><a href="dashboard.html"><img src="image/icons8-dashboard-24.png" alt=""> &nbsp; <span>Dashboard</span></a> </li>
-                    <li><a href="encode.html"><img src="image/icons8-document-64.png" alt=""> &nbsp;<span>Crime Data</span> </a></li>
-                    <li><a href="mapping.html"><img src="image/icons8-place-marker-24.png" alt=""> &nbsp;<span>Crime Mapping</span></a> </li>
-                    <li><a href="analysis.html"><img src="image/icons8-graph-50.png" alt=""> &nbsp;<span>Crime Analysis</span> </a></li>
-                    <li><a href="users.html"><img src="image/icons8-user-48.png" alt=""> &nbsp;<span>Manage Users</span> </a></li>
-                    <li><img src="image/icons8-logout-50.png" alt=""> &nbsp; <span>Logout</span></li>
-                  </ul>
-                  </div>
+                    <ul>
+                        <li><a href="dashboard.html"><img src="image/icons8-dashboard-24.png" alt=""> &nbsp; <span>Dashboard</span></a></li>
+                        <li><a href="encode.html"><img src="image/icons8-document-64.png" alt=""> &nbsp;<span>Crime Data</span></a></li>
+                        <li><a href="mapping.html"><img src="image/icons8-place-marker-24.png" alt=""> &nbsp;<span>Crime Mapping</span></a></li>
+                        <li><a href="analysis.html"><img src="image/icons8-graph-50.png" alt=""> &nbsp;<span>Crime Analysis</span></a></li>
+                        <li><a href="users.html"><img src="image/icons8-user-48.png" alt=""> &nbsp;<span>Manage Users</span></a></li>
+                        <li><img src="image/icons8-logout-50.png" alt=""> &nbsp; <span>Logout</span></li>
+                    </ul>
+                </div>
             </div>
             <div class="board">
                 <div class="dashboardss">
-                   <p>Analysis</p>
-                </div>  
-              
+                    <p>Analysis</p>
+                </div>
                 <div class="analysis-graph">
-                    <div class="graph-box"> 
+                    <!-- Monthly Crime Rate -->
+                    <div class="graph-box">
                         <h2>MONTHLY CRIME RATE</h2>
-                    <a href="" class="a-chart">
-                        <canvas id="myChart" class="chart"></canvas>
-                    </a>
-
-                    </div>
-                    <div class="graph-box"> 
-                        <h2>MONTHLY CRIME RATE</h2>
-                        <a href="" class="a-chart">
-                        <canvas id="MonthlyCrime" class="chart"></canvas>
+                        <a href="javascript:void(0)" class="a-chart" onclick="openModal('myChartModal', 'myChart', 'myChartLarge')">
+                            <canvas id="myChart" class="chart"></canvas>
                         </a>
+                        <div id="myChartModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close" onclick="closeModal('myChartModal')">&times;</span>
+                                <h2>Monthly Crime Rate</h2>
+                                <canvas id="myChartLarge" class="chart"></canvas>
+                                <div class="summary">
+                                    <p><strong>Summary:</strong> This graph shows the monthly crime rate trends for the selected period.</p>
+                                </div>
+                                <button onclick="exportChart('myChartLarge')" class="btn-export">Export</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="analysis-graph">
-                    <div class="graph-box">
-                         <h2>MONTHLY CRIME RATE</h2>
-                         <a href="" class="a-chart-b">
-                         <canvas id="FrequentCrime" class="chart-box"></canvas>
-                         </a>
-                    </div>
-                    <div class="graph-box">
-                         <h2>MONTHLY CRIME RATE</h2>
-                         <a href="" class="a-chart-b">
-                         <canvas id="CrimeHotspot" class="chartbox"></canvas>
-                         </a>   
-                    </div>
-                </div>
 
-                
+                    <!-- Frequent Crime -->
+                    <div class="graph-box">
+                        <h2>FREQUENT CRIME</h2>
+                        <a href="javascript:void(0)" class="a-chart" onclick="openModal('frequentCrimeModal', 'MonthlyCrime', 'MonthlyCrimeLarge')">
+                            <canvas id="MonthlyCrime" class="chart"></canvas>
+                        </a>
+                        <div id="frequentCrimeModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close" onclick="closeModal('frequentCrimeModal')">&times;</span>
+                                <h2>Frequent Crime</h2>
+                                <canvas id="MonthlyCrimeLarge" class="chart"></canvas>
+                                <div class="summary">
+                                    <p><strong>Summary:</strong> This graph shows the most frequent crimes reported during the selected period.</p>
+                                </div>
+                                <button onclick="exportChart('MonthlyCrimeLarge')" class="btn-export">Export</button>
+                            </div>
+                        </div>
+                    </div>
 
-                <div>
-                    
+                    <!-- Crime Hotspots -->
+                    <div class="graph-box">
+                        <h2>CRIME HOTSPOTS</h2>
+                        <a href="javascript:void(0)" class="a-chart" onclick="openModal('crimeHotspotModal', 'CrimeHotspot', 'CrimeHotspotLarge')">
+                            <canvas id="CrimeHotspot" class="chart"></canvas>
+                        </a>
+                        <div id="crimeHotspotModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close" onclick="closeModal('crimeHotspotModal')">&times;</span>
+                                <h2>Crime Hotspots</h2>
+                                <canvas id="CrimeHotspotLarge" class="chart"></canvas>
+                                <div class="summary">
+                                    <p><strong>Summary:</strong> This graph highlights areas with the highest crime rates during the selected period.</p>
+                                </div>
+                                <button onclick="exportChart('CrimeHotspotLarge')" class="btn-export">Export</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Index - Non-Index Crimes -->
+                    <div class="graph-box">
+                        <h2>INDEX - NON-INDEX CRIMES</h2>
+                        <a href="javascript:void(0)" class="a-chart-c" onclick="openModal('indexNonIndexModal', 'FrequentCrime', 'FrequentCrimeLarge')">
+                            <canvas id="FrequentCrime" class="chart-box"></canvas>
+                        </a>
+                        <div id="indexNonIndexModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close" onclick="closeModal('indexNonIndexModal')">&times;</span>
+                                <h2>Index - Non-Index Crimes</h2>
+                                <canvas id="FrequentCrimeLarge" class="chart-b"></canvas>
+                                <div class="summary">
+                                    <p><strong>Summary:</strong> This graph compares index and non-index crimes during the selected period.</p>
+                                </div>
+                                <button onclick="exportChart('FrequentCrimeLarge')" class="btn-export">Export</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="script.js"></script>
-     </body>
-  </html>
+    </body>
+</html>

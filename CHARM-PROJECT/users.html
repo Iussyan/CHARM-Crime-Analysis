@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>
-            Manage Users
-        </title>
+        <title>Manage Users</title>
         <link rel="stylesheet" href="css/dashboard.css">
     </head>
     <body>
         <div class="grid-container">
             <div class="dashboard">
                 <div class="headerss">
-                <p class="fontts">Crime reporting</p>
+                    <p class="fontts">Crime reporting</p>
                 </div>
                 <div class="iconss">
                     <img src="image/flower.jpg" class="user-icon">
@@ -18,45 +16,67 @@
                 </div>
                 
                 <div class="choices">
-                <ul>
-                    <li><a href="dashboard.html"><img src="image/icons8-dashboard-24.png" alt=""> &nbsp; <span>Dashboard</span></a> </li>
-                    <li><a href="encode.html"><img src="image/icons8-document-64.png" alt=""> &nbsp;<span>Crime Data</span> </a></li>
-                    <li><a href="mapping.html"><img src="image/icons8-place-marker-24.png" alt=""> &nbsp;<span>Crime Mapping</span></a> </li>
-                    <li><a href="analysis.html"><img src="image/icons8-graph-50.png" alt=""> &nbsp;<span>Crime Analysis</span> </a></li>
-                    <li><a href="users.html"><img src="image/icons8-user-48.png" alt=""> &nbsp;<span>Manage Users</span> </a></li>
-                    <li><img src="image/icons8-logout-50.png" alt=""> &nbsp; <span>Logout</span></li>
-                  </ul>
-                  </div>
+                    <ul>
+                        <li><a href="dashboard.html"><img src="image/icons8-dashboard-24.png" alt=""> &nbsp; <span>Dashboard</span></a></li>
+                        <li><a href="encode.html"><img src="image/icons8-document-64.png" alt=""> &nbsp;<span>Crime Data</span></a></li>
+                        <li><a href="mapping.html"><img src="image/icons8-place-marker-24.png" alt=""> &nbsp;<span>Crime Mapping</span></a></li>
+                        <li><a href="analysis.html"><img src="image/icons8-graph-50.png" alt=""> &nbsp;<span>Crime Analysis</span></a></li>
+                        <li><a href="users.html"><img src="image/icons8-user-48.png" alt=""> &nbsp;<span>Manage Users</span></a></li>
+                        <li><img src="image/icons8-logout-50.png" alt=""> &nbsp; <span>Logout</span></li>
+                    </ul>
+                </div>
             </div>
         
             <div class="board">
-             <div class="dashboardss">
-                <p>Crime Data</p>
-             </div>  
-             <div class="table-grid">
-                <div class="encode-btn">
-                    <div class="encode-crud"><button class="btn-crud">ADD</button></div>
-                    <div class="encode-crud"><button class="btn-crud">UPDATE</button></div>
-                    <div class="encode-crud"><button class="btn-crud">ARCHIVE</button></div>
-                </div>
-                <div class="encode-table">
-                    <h1>Crime Report Table</h1>
-                    <table class="crime-table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Birthdate</th>
-                                <th>Age</th>
-                                <th>Sex</th>
-                                <th>Email</th>
-                                <th>Username</th>
-                                <th>Password</th>
-                            </tr>
-                        </thead>
-                       
+                <div class="dashboardss">
+                    <p>User Management</p>
+                </div>  
+                <div class="table-grid">
+                    <div class="encode-btn">
+                        <div class="encode-crud"><button class="btn-crud">ADD</button></div>
+                    </div>
+                    <div class="encode-table">
+                        <h1>Crime Report Table</h1>
+                        <table class="crime-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Birthdate</th>
+                                    <th>Age</th>
+                                    <th>Sex</th>
+                                    <th>Email</th>
+                                    <th>Username</th>
+                                    <th>Password</th>
+                                </tr>
+                            </thead>
+                           
                         </table>
+                    </div>
                 </div>
-             </div>
-               </body>
-    </html>
+            </div>
+        </div>
+
+        <div id="detailsModal" class="user-modal">
+            <div class="user-modal-content">
+                <span class="user-modal-close" onclick="closeModal('detailsModal')">&times;</span>
+                <h2>Details</h2>
+                <div class="user-details-content">
+                    <p><strong>ID:</strong> <span id="detail-id"></span></p>
+                    <p><strong>Name:</strong> <span id="detail-name"></span></p>
+                    <p><strong>Birthdate:</strong> <span id="detail-birthdate"></span></p>
+                    <p><strong>Age:</strong> <span id="detail-age"></span></p>
+                    <p><strong>Sex:</strong> <span id="detail-sex"></span></p>
+                    <p><strong>Email:</strong> <span id="detail-email"></span></p>
+                    <p><strong>Username:</strong> <span id="detail-username"></span></p>
+                </div>
+                <div class="user-modal-buttons">
+                    <button class="btn-update">Update</button>
+                    <button class="btn-archive">Archive</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -13,7 +13,7 @@
                 <p class="fontts">Crime reporting</p>
                 </div>
                 <div class="iconss">
-                    <img src="image/flower.jpg" class="user-icon">
+                    <img src="image/icons8-user-48.png" class="user-icon">
                     <p>USER</p>
                 </div>
                 
@@ -42,19 +42,25 @@
                 <div class="junk">
                         <div class="junks">
                             <h2>MONTHLY CRIME RATE</h2>
-                            <img src="image/samplegraph.png">
+                            <a href="analysis.html" >
+                                <canvas id="myChart" class="chart-analysis"></canvas>
+                            </a>
                         </div>
                         <div class="junks">
-                            <h2>MONTHLY CRIME RATE
+                            <h2>FREQUENT CRIME
                                 </h2>   
-                                <img src="image/samplegraph1.svg">
+                                <a href="analysis.html" >
+                                    <canvas id="MonthlyCrime" class="chart-analysis"></canvas>
+                                </a>
                             </div>
                 </div>
                 <div class="josko">
+                    
                     <div class="graphs">
-                        <h3>Index and Non-Index Crime</h3>
-                        <img src="image/samplegraph2.svg" class="smol">
-
+                        <h3>Index & Non-Index Crime</h3>
+                        <a href="mapping.html">
+                        <img src="image/map.png" class="smol">
+                            </a>
                     </div>
                    
                 </div>
@@ -62,5 +68,7 @@
             </div> 
 
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>s
+        <script src="script.js"></script>
     </body>
 </html>

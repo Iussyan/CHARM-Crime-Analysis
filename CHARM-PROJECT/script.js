@@ -3,10 +3,10 @@ const ctx = document.getElementById('myChart');
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Rjay'],
       datasets: [{
         label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        data: [12, 19, 3, 5, 2, 0],
         borderWidth: 1
       }]
     },
@@ -64,7 +64,7 @@ const ctx = document.getElementById('myChart');
   const chs = document.getElementById('CrimeHotspot');
 
   new Chart(chs, {
-    type: 'donut',
+    type: 'bar',
     data: {
       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
       datasets: [{
@@ -82,68 +82,45 @@ const ctx = document.getElementById('myChart');
     }
   });
 
-  // Open the first form and close the second
-function openForm() {
-  // Close the second form if it's open
-  const formB = document.getElementById("myForm-b");
-  formB.style.display = "none";  // Hide it
-  formB.classList.remove("show"); // Remove the animation
-  
-  // Open the first form
-  const form = document.getElementById("myForm");
-  
-  // Reset the animation by removing and re-adding the class
-  form.classList.remove("show");
-  form.style.display = "block"; // make it visible before animation
-  
-  // Add the animation class with a small delay to trigger the animation
-  setTimeout(() => {
-    form.classList.add("show");
-  }, 10);
+
+
+// Open modal
+function openModal(modalId, chartId, largeChartId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.style.display = "block";
+
+    // Copy the chart data to the larger chart
+    const originalChart = Chart.getChart(chartId);
+    const largeChartCanvas = document.getElementById(largeChartId);
+    if (originalChart && largeChartCanvas) {
+      // Destroy any existing chart on the large canvas to avoid duplication
+      if (Chart.getChart(largeChartId)) {
+        Chart.getChart(largeChartId).destroy();
+      }
+
+      // Create a new chart on the large canvas with the same configuration
+      new Chart(largeChartCanvas, originalChart.config);
+    }
+  }
 }
 
-// Close the first form
-function closeForm() {
-  const form = document.getElementById("myForm");
-  
-  // Remove the animation class to stop the animation
-  form.classList.remove("show");
-  
-  // Optional: use a fade/slide out animation first, then hide it
-  setTimeout(() => {
-    form.style.display = "none";
-  }, 500); // Match animation duration
+// Close modal
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.style.display = "none";
+  }
 }
 
-// Open the second form and close the first
-function openFormb() {
-  // Close the first form if it's open
-  const form = document.getElementById("myForm");
-  form.style.display = "none";  // Hide it
-  form.classList.remove("show"); // Remove the animation
-  
-  // Open the second form
-  const formB = document.getElementById("myForm-b");
-  
-  // Reset the animation by removing and re-adding the class
-  formB.classList.remove("show");
-  formB.style.display = "block"; // make it visible before animation
-  
-  // Add the animation class with a small delay to trigger the animation
-  setTimeout(() => {
-    formB.classList.add("show");
-  }, 10);
+// Export chart as an image
+function exportChart(chartId) {
+  const chart = document.getElementById(chartId);
+  if (chart) {
+    const link = document.createElement('a');
+    link.href = chart.toDataURL('image/png');
+    link.download = 'chart.png';
+    link.click();
+  }
 }
 
-// Close the second form
-function closeFormb() {
-  const formB = document.getElementById("myForm-b");
-  
-  // Remove the animation class to stop the animation
-  formB.classList.remove("show");
-  
-  // Optional: use a fade/slide out animation first, then hide it
-  setTimeout(() => {
-    formB.style.display = "none";
-  }, 500); // Match animation duration
-}
