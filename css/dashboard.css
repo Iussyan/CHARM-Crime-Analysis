@@ -137,7 +137,6 @@ ul li span {
 }
 
 .board {
-
     color: black;
 }
 
@@ -218,7 +217,6 @@ ul li span {
 }
 
 .dashboardss {
-
     padding: 10px 15px 10px 15px;
     border: solid;
     margin-left: 10px;
@@ -233,7 +231,6 @@ ul li span {
 /* Style the list items to look like buttons */
 .graphs {
     display: block;
-    
 }
 
 .graphs img {
@@ -614,16 +611,16 @@ input[type="text"]:focus {
 }
 
 /* MAP.HTML CSS*/
+#map-border {
+    border: 3px solid #04AA6D;
+}
+
 #map {
     position: absolute;
-    top: 7%;
-    bottom: 0;
-    left: 19.3%;
-    right: 0.5%;
     border: 2px solid black;
     border-radius: 5px;
-    width: calc(100% - 20%);
-    height: calc(100% - 7%);
+    width: calc(100% - 19.5%);
+    height: calc(100% - 125px);
     box-sizing: border-box;
 }
 
@@ -808,12 +805,9 @@ a {
     display: grid;
     grid-template-columns: 2fr 2fr;
     gap: 0px;
-
-
 }
 
 .graph-box {
-
     display: flex;
     flex-direction: column;
     /* Stack content vertically */
@@ -825,7 +819,6 @@ a {
     background-color: #dee4e7;
     border-radius: 10px;
     margin-left: 10px;
-
     border: solid black;
     margin-right: 10px;
     padding-bottom: 40px;
@@ -872,10 +865,7 @@ a {
     height: 300px;
     display: grid;
     border-radius: 20px;
-
     grid-template-columns: 1.25fr 2.75fr;
-
-
 }
 
 .login-image {

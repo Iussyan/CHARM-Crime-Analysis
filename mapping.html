@@ -37,7 +37,7 @@
                 </ul>
             </div>
         </div>
-        <div class="board">
+        <div id="map-border">
             <div class="dashboardss">
                 <p>Crime Mapping</p>
             </div>
@@ -161,8 +161,8 @@
                     // Initialize the map with restricted zoom and bounds
                     var map = L.map('map', {
                         center: [14.7007, 121.0349], // Center the map on the GeoJSON bounds
-                        zoom: 19,        // Initial zoom level
-                        minZoom: 15,     // Minimum zoom level
+                        zoom: 18,        // Initial zoom level
+                        minZoom: 16,     // Minimum zoom level
                         maxZoom: 19      // Maximum zoom level
                     });
 
@@ -183,7 +183,7 @@
                 
                     var geojsonLayer = L.geoJSON(geojsonData, {
                         style: {
-                            color: '#000000', /* Gray */
+                            color: 'blue', /* Gray */
                             fillColor: '#ffffff', /* Lighter shade of gray */
                             fillOpacity: 0
                         }
