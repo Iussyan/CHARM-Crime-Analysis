@@ -1,0 +1,616 @@
+/* ANALYSIS.HTML*/
+
+.analysis-graph {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 10px;
+}
+
+.graph-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 200px;
+    margin-top: 10px;
+    background-color: #dee4e7;
+    border-radius: 10px;
+    margin-left: 10px;
+    border: solid black;
+    margin-right: 10px;
+}
+
+.graph-box h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.graph-box img {
+    max-width: 25%;
+    height: auto;
+    box-shadow: 2px 10px 5px 10px #dee4e7;
+    object-fit: contain;
+}
+
+.login-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+}
+
+.login-hf {
+    background-color: #262c33;
+    height: 110px;
+}
+
+.login-container {
+    background-color: #dee4e7;
+    height: 510px;
+    place-content: center;
+    padding-left: 400px;
+}
+
+.login-box {
+    width: 800px;
+    height: 300px;
+    display: grid;
+    border-radius: 20px;
+    grid-template-columns: 1.25fr 2.75fr;
+}
+
+.login-image {
+    place-content: center;
+    padding-left: 100px;
+}
+
+.login-txtbox {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.txtbox-header {
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    place-content: center;
+    justify-content: center;
+    padding-left: 190px;
+    padding-bottom: 0px;
+    padding-top: 20px;
+    height: 80px;
+    width: 100%;
+}
+
+.txtbox {
+    height: 150px;
+    width: 100%;
+    place-content: center;
+    padding-right: 50px;
+    padding-left: 70px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .analysis-graph {
+        grid-template-columns: 1fr;
+    }
+
+    .graph-box {
+        height: auto;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .login-container {
+        padding-left: 20px;
+        height: auto;
+    }
+
+    .login-box {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .login-image {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .txtbox-header {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .txtbox {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .graph-box h2 {
+        font-size: 1rem;
+    }
+
+    .graph-box img {
+        max-width: 50%;
+    }
+
+    .txtbox-header {
+        font-size: 20px;
+    }
+
+    .txtbox {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+.txtbox-btn {
+    height: 60px;
+    width: 100%;
+    padding-right: 50px;
+    padding-top: 0px;
+}
+
+.login-img {
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+
+}
+
+label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 6px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.btn-login {
+    background-color: black;
+    color: white;
+    padding: 12px 24px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    float: right;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-login:hover {
+    background-color: white;
+    color: black;
+
+}
+
+/* ANALYSIS.HTML*/
+
+.analysis-graph {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 0px;
+}
+
+.graph-box {
+    display: flex;
+    flex-direction: column;
+    /* Stack content vertically */
+    align-items: center;
+    /* Center-align content */
+    text-align: center;
+    height: 300px;
+    margin-top: 10px;
+    background-color: #dee4e7;
+    border-radius: 10px;
+    margin-left: 10px;
+    border: solid black;
+    margin-right: 10px;
+    padding-bottom: 40px;
+}
+
+.graph-box h2 {
+    font-size: 1.2rem;
+    /* Control heading size */
+    margin-bottom: 10px;
+}
+
+.graph-box img {
+    max-width: 25%;
+    /* Ensure images are responsive */
+    height: auto;
+    /* Maintain aspect ratio */
+    box-shadow: 2px 10px 5px 10px #dee4e7;
+    object-fit: contain;
+    /* Ensure images fit within their containers without stretching */
+}
+
+/*CRUD CSS*/
+
+.chart {
+    width: 200px;
+    height: 100px;
+    background-color: #fff;
+    /* Add a white background */
+    border: 2px solid #2c3e50;
+    /* Add a border */
+    border-radius: 12px;
+    /* Rounded corners */
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Soft shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+    text-decoration: none;
+
+}
+
+.chart:hover {
+    transform: scale(1.05);
+    /* Grow the chart */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Optional: shadow effect */
+    cursor: pointer;
+    /* Optional: show pointer to indicate click */
+}
+
+.chart-box {
+    width: 200px;
+    height: 50px;
+    background-color: #fff;
+    /* Add a white background */
+    border: 2px solid #2c3e50;
+    /* Add a border */
+    border-radius: 12px;
+    /* Rounded corners */
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Soft shadow */
+    padding-left: 50px;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding-right: 0px;
+}
+
+.chart-box:hover {
+    transform: scale(1.05);
+    /* Grow the chart */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Optional: shadow effect */
+    cursor: pointer;
+    /* Optional: show pointer to indicate click */
+}
+
+.a-chart {
+    display: block;
+    width: 500px;
+    height: 300px;
+
+    text-decoration: none;
+    /* Remove underline if needed */
+}
+
+.a-chart-b {
+    display: block;
+    width: 500px;
+    height: 250px;
+    padding-left: 120px;
+    text-decoration: none;
+    /* Remove underline if needed */
+}
+
+
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+/* The popup form - hidden by default */
+@keyframes slideIn {
+    from {
+        transform: translate(-50%, 100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+#myForm {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    opacity: 0;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    background-color: white;
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Slide-in effect */
+#myForm.show {
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+#myForm-b {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    opacity: 0;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    background-color: white;
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Slide-in effect */
+#myForm-b.show {
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+/* Add styles to the form container */
+.form-container {
+    padding: 20px;
+    background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text],
+.form-container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus,
+.form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+    background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover,
+.open-button:hover {
+    opacity: 1;
+}
+
+.crime-text {
+    width: 300px;
+}
+
+/* Style for Date Input */
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    font-size: 16px;
+    color: #333;
+    box-sizing: border-box;
+}
+
+input[type="date"]:focus {
+    border-color: #f1f1f1;
+    /* Green border when focused */
+    outline: none;
+    background-color: #ddd;
+    /* Light green background when focused */
+}
+
+/* Style for Time Input */
+input[type="time"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    font-size: 16px;
+    color: #333;
+    box-sizing: border-box;
+}
+
+input[type="time"]:focus {
+    border-color: #f1f1f1;
+    /* Green border when focused */
+    outline: none;
+    background-color: #ddd;
+    /* Light green background when focused */
+}
+
+/* Add placeholders to look nice */
+input[type="date"]::placeholder,
+input[type="time"]::placeholder {
+    color: #aaa;
+}
+
+.a-chart-c {
+
+    display: flex;
+    width: 400px;
+    height: 260px;
+    place-content: center;
+    justify-content: center;
+    text-decoration: none;
+    /* Remove underline if needed */
+
+}
+
+
+
+/* Modal styles */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Black background with opacity */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.summary {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.btn-export {
+    padding: 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 15px;
+    background-color: #ddd;
+
+}
+
+.chart-analysis {
+    width: 400px;
+    height: 300px;
+    background-color: #fff;
+    /* Add a white background */
+    border: 2px solid #2c3e50;
+    /* Add a border */
+    border-radius: 12px;
+    /* Rounded corners */
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Soft shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+    text-decoration: none;
+
+}
+
+.chart-analysis:hover {
+    transform: scale(1.05);
+    /* Grow the chart */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Optional: shadow effect */
+    cursor: pointer;
+    /* Optional: show pointer to indicate click */
+}
+
+/* user-modal styles */
+.user-modal {
+    display: none;
+    /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Dark background */
+    justify-content: center;
+    align-items: center;
+}
+
+.user-modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+}
+
+.user-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.user-modal-buttons {
+    margin-top: 20px;
+}
+
+.user-modal-buttons button {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+/* Background overlay (hidden by default) */
+@keyframes slideIn {
+    from {
+        transform: translate(-50%, 100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}

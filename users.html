@@ -2,11 +2,77 @@
 <html>
     <head>
         <title>Manage Users</title>
-        <link rel="stylesheet" href="css/dashboard.css">
+        <link rel="stylesheet" href="css/users.css">        
+        <link rel="stylesheet" href="css/universal.css">
+        <style>
+            /* Add styles for the collapsible panel */
+            .grid-container {
+                display: grid;
+                grid-template-columns: 250px auto;
+                transition: all 0.3s ease;
+            }
+
+            .grid-container.collapsed {
+                grid-template-columns: 80px auto;
+            }
+
+            .dashboard {
+                transition: all 0.3s ease;
+                overflow: hidden;
+            }
+
+            .dashboard.collapsed .choices span {
+                display: none;
+            }
+
+            .dashboard.collapsed .choices img {
+                margin: 0 auto;
+                display: block;
+            }
+
+            .dashboard.collapsed .headerss .fontts {
+                display: none;
+            }
+
+            .dashboard.collapsed .iconss p {
+                display: none;
+            }
+
+            .dashboard.collapsed .iconss img {
+                margin-top: 20px; /* Add space to move it down */
+                transition: all 0.3s ease; /* Smooth transition */
+                transform: translateY(20px); /* Move the image down by 20px */
+                transition: transform 0.3s ease; /* Smooth transition */
+            }
+
+            .board {
+                transition: all 0.3s ease;
+            }
+
+            /* Default position of the toggle button */
+            .toggle-button {
+                position: fixed;
+                top: 15px;
+                left: 11%; /* Starting position when expanded */
+                cursor: pointer;
+                background-color: #ccc;
+                border: none;
+                padding: 7px 10px;
+                border-radius: 5px;
+                z-index: 1000;
+                transition: all 0.3s ease;
+            }
+
+            /* Adjust position when grid-container is collapsed */
+            .grid-container.collapsed .toggle-button {
+                left: 1.2%; /* End position when collapsed */
+            }
+        </style>
     </head>
     <body>
-        <div class="grid-container">
-            <div class="dashboard">
+        <div class="grid-container" id="gridContainer">
+            <button class="toggle-button" onclick="togglePanel()">☰</button>
+            <div class="dashboard" id="dashboard">
                 <div class="headerss">
                     <p class="fontts">Crime reporting</p>
                 </div>
@@ -76,7 +142,53 @@
                 </div>
             </div>
         </div>
+        <script>
+            function togglePanel() {
+                const gridContainer = document.getElementById('gridContainer');
+                const dashboard = document.getElementById('dashboard');
+                const userIcon = document.querySelector('.user-icon');
+                
+                gridContainer.classList.toggle('collapsed');
+                dashboard.classList.toggle('collapsed');
+                
+                if (gridContainer.classList.contains('collapsed')) {
+                    // Save the collapsed state
+                    localStorage.setItem('menuState', 'collapsed');
+                    userIcon.style.width = '40px';
+                    userIcon.style.height = '40px';
+                } else {
+                    // Save the expanded state
+                    localStorage.setItem('menuState', 'expanded');
+                    userIcon.style.width = '';
+                    userIcon.style.height = '';
+                }
+            }
 
+            document.addEventListener('DOMContentLoaded', () => {
+                const gridContainer = document.getElementById('gridContainer');
+                const dashboard = document.getElementById('dashboard');
+                const userIcon = document.querySelector('.user-icon');
+                
+                // Get the saved menu state from localStorage
+                const menuState = localStorage.getItem('menuState');
+                
+                if (menuState === 'collapsed') {
+                    gridContainer.classList.add('collapsed');
+                    dashboard.classList.add('collapsed');
+                    if (userIcon) {
+                        userIcon.style.width = '40px';
+                        userIcon.style.height = '40px';
+                    }
+                } else {
+                    gridContainer.classList.remove('collapsed');
+                    dashboard.classList.remove('collapsed');
+                    if (userIcon) {
+                        userIcon.style.width = '';
+                        userIcon.style.height = '';
+                    }
+                }
+            });
+        </script>
         <script src="script.js"></script>
     </body>
 </html>

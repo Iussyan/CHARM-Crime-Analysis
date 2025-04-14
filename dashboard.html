@@ -1,74 +1,179 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>
-            Dashboard
-        </title>
+        <title>Dashboard</title>
         <link rel="stylesheet" href="css/dashboard.css">
+        <link rel="stylesheet" href="css/universal.css">
+        <style>
+            /* Add styles for the collapsible panel */
+            .grid-container {
+                display: grid;
+                grid-template-columns: 250px auto;
+                transition: all 0.3s ease;
+            }
+
+            .grid-container.collapsed {
+                grid-template-columns: 80px auto;
+            }
+
+            .dashboard {
+                transition: all 0.3s ease;
+                overflow: hidden;
+            }
+
+            .dashboard.collapsed .choices span {
+                display: none;
+            }
+
+            .dashboard.collapsed .choices img {
+                margin: 0 auto;
+                display: block;
+            }
+
+            .dashboard.collapsed .headerss .fontts {
+                display: none;
+            }
+
+            .dashboard.collapsed .iconss p {
+                display: none;
+            }
+
+            .dashboard.collapsed .iconss img {
+                margin-top: 20px; /* Add space to move it down */
+                transition: all 0.3s ease; /* Smooth transition */
+                transform: translateY(20px); /* Move the image down by 20px */
+                transition: transform 0.3s ease; /* Smooth transition */
+            }
+
+            .board {
+                transition: all 0.3s ease;
+            }
+
+            /* Default position of the toggle button */
+            .toggle-button {
+                position: fixed;
+                top: 15px;
+                left: 11%; /* Starting position when expanded */
+                cursor: pointer;
+                background-color: #ccc;
+                border: none;
+                padding: 7px 10px;
+                border-radius: 5px;
+                z-index: 1000;
+                transition: all 0.3s ease;
+            }
+
+            /* Adjust position when grid-container is collapsed */
+            .grid-container.collapsed .toggle-button {
+                left: 1.2%; /* End position when collapsed */
+            }
+        </style>
     </head>
     <body>
-        <div class="grid-container">
-            <div class="dashboard">
-                <div class="headerss">
+        <div class="grid-container" id="gridContainer">
+            <button class="toggle-button" onclick="togglePanel()">☰</button>
+            <div class="dashboard" id="dashboard">
+            <div class="headerss">
                 <p class="fontts">Crime reporting</p>
-                </div>
-                <div class="iconss">
-                    <img src="image/icons8-user-48.png" class="user-icon">
-                    <p>USER</p>
-                </div>
-                
-                <div class="choices">
-                <ul>
-                    <li><a href="dashboard.html"><img src="image/icons8-dashboard-24.png" alt=""> &nbsp; <span>Dashboard</span></a> </li>
-                    <li><a href="encode.html"><img src="image/icons8-document-64.png" alt=""> &nbsp;<span>Crime Data</span> </a></li>
-                    <li><a href="mapping.html"><img src="image/icons8-place-marker-24.png" alt=""> &nbsp;<span>Crime Mapping</span></a> </li>
-                    <li><a href="analysis.html"><img src="image/icons8-graph-50.png" alt=""> &nbsp;<span>Crime Analysis</span> </a></li>
-                    <li><a href="users.html"><img src="image/icons8-user-48.png" alt=""> &nbsp;<span>Manage Users</span> </a></li>
-                    <li><img src="image/icons8-logout-50.png" alt=""> &nbsp; <span>Logout</span></li>
-                  </ul>
-                  </div>
             </div>
-        
+            <div class="iconss">
+                <img src="image/icons8-user-48.png" class="user-icon">
+                <p>USER</p>
+            </div>
+            <div class="choices">
+                <ul>
+                <li><a href="dashboard.html"><img src="image/icons8-dashboard-24.png" alt=""> &nbsp; <span>Dashboard</span></a></li>
+                <li><a href="encode.html"><img src="image/icons8-document-64.png" alt=""> &nbsp;<span>Crime Data</span></a></li>
+                <li><a href="mapping.html"><img src="image/icons8-place-marker-24.png" alt=""> &nbsp;<span>Crime Mapping</span></a></li>
+                <li><a href="analysis.html"><img src="image/icons8-graph-50.png" alt=""> &nbsp;<span>Crime Analysis</span></a></li>
+                <li><a href="users.html"><img src="image/icons8-user-48.png" alt=""> &nbsp;<span>Manage Users</span></a></li>
+                <li><img src="image/icons8-logout-50.png" alt=""> &nbsp; <span>Logout</span></li>
+                </ul>
+            </div>
+            </div>
             <div class="board">
-             <div class="dashboardss">
-                <p>Dashboard</p>
-             </div>  
-             <div class="dash">
-                <div class="dashes">Total Crimes:</div>
-                <div class="dashes">Most Frequent Crime:</div>
-                <div class="dashes">Crime Hotspot:</div>
-             </div>  
-             <div class="cute">
-                <div class="junk">
+                <div class="dashboardss">
+                    <p>Dashboard</p>
+                </div>
+                <div class="dash">
+                    <div class="dashes">Total Crimes:</div>
+                    <div class="dashes">Most Frequent Crime:</div>
+                    <div class="dashes">Crime Hotspot:</div>
+                </div>
+                <div class="cute">
+                    <div class="junk">
                         <div class="junks">
                             <h2>MONTHLY CRIME RATE</h2>
-                            <a href="analysis.html" >
+                            <a href="analysis.html">
                                 <canvas id="myChart" class="chart-analysis"></canvas>
                             </a>
                         </div>
                         <div class="junks">
-                            <h2>FREQUENT CRIME
-                                </h2>   
-                                <a href="analysis.html" >
-                                    <canvas id="MonthlyCrime" class="chart-analysis"></canvas>
-                                </a>
-                            </div>
-                </div>
-                <div class="josko">
-                    
-                    <div class="graphs">
-                        <h3>Index & Non-Index Crime</h3>
-                        <a href="mapping.html">
-                        <img src="image/map.png" class="smol">
+                            <h2>FREQUENT CRIME</h2>
+                            <a href="analysis.html">
+                                <canvas id="MonthlyCrime" class="chart-analysis"></canvas>
                             </a>
+                        </div>
                     </div>
-                   
+                    <div class="josko">
+                        <div class="graphs">
+                            <h3>Index & Non-Index Crime</h3>
+                            <a href="mapping.html">
+                                <img src="image/map.png" class="smol">
+                            </a>
+                        </div>
+                    </div>
                 </div>
-             </div>  
-            </div> 
-
+            </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>s
+        <script>
+            function togglePanel() {
+                const gridContainer = document.getElementById('gridContainer');
+                const dashboard = document.getElementById('dashboard');
+                const userIcon = document.querySelector('.user-icon');
+                
+                gridContainer.classList.toggle('collapsed');
+                dashboard.classList.toggle('collapsed');
+                
+                if (gridContainer.classList.contains('collapsed')) {
+                    // Save the collapsed state
+                    localStorage.setItem('menuState', 'collapsed');
+                    userIcon.style.width = '40px';
+                    userIcon.style.height = '40px';
+                } else {
+                    // Save the expanded state
+                    localStorage.setItem('menuState', 'expanded');
+                    userIcon.style.width = '';
+                    userIcon.style.height = '';
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const gridContainer = document.getElementById('gridContainer');
+                const dashboard = document.getElementById('dashboard');
+                const userIcon = document.querySelector('.user-icon');
+                
+                // Get the saved menu state from localStorage
+                const menuState = localStorage.getItem('menuState');
+                
+                if (menuState === 'collapsed') {
+                    gridContainer.classList.add('collapsed');
+                    dashboard.classList.add('collapsed');
+                    if (userIcon) {
+                        userIcon.style.width = '40px';
+                        userIcon.style.height = '40px';
+                    }
+                } else {
+                    gridContainer.classList.remove('collapsed');
+                    dashboard.classList.remove('collapsed');
+                    if (userIcon) {
+                        userIcon.style.width = '';
+                        userIcon.style.height = '';
+                    }
+                }
+            });
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="script.js"></script>
     </body>
 </html>

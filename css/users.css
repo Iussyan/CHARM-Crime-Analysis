@@ -1,0 +1,65 @@
+/*ENCODE.HTML CSS*/
+.encode-btn {
+    background-color: #dee4e7;
+    display: inline-block;
+    padding: 10px;
+
+}
+
+.encode-crud {
+    display: inline-block;
+}
+
+/* Basic reset for the .btn-crud button */
+/* Basic reset for the .btn-crud button */
+/* Basic styling for the .btn-crud button */
+.btn-crud {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: 2px solid #262c33;
+    /* Subtle border to match the theme */
+    background-color: #dee4e7;
+    /* Light background color */
+    color: #262c33;
+    /* Dark text for good contrast */
+    border-radius: 8px;
+    /* Rounded corners */
+    cursor: pointer;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    /* Smooth transitions for subtle hover effects */
+}
+
+/* Hover effect */
+.btn-crud:hover {
+    background-color: #262c33;
+    /* Dark background on hover */
+    color: #dee4e7;
+    /* Light text color on hover */
+    border-color: #dee4e7;
+    /* Light border on hover */
+}
+
+/* Focus effect for accessibility */
+.btn-crud:focus {
+    outline: 2px solid #dee4e7;
+    /* Subtle focus outline */
+}
+
+/* Active state (when the button is clicked) */
+.btn-crud:active {
+    transform: translateY(1px);
+    /* Button moves slightly down on click */
+}
+
+.encode-table {
+
+    background-color: #fff;
+    /* White background for the table */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+}

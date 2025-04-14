@@ -1,0 +1,286 @@
+/*ENCODE.HTML CSS*/
+.encode-btn {
+    background-color: #dee4e7;
+    display: inline-block;
+    padding: 10px;
+}
+
+.encode-crud {
+    display: inline-block;
+}
+
+.btn-crud {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: 2px solid #262c33;
+    background-color: #dee4e7;
+    color: #262c33;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.btn-crud:hover {
+    background-color: #262c33;
+    color: #dee4e7;
+    border-color: #dee4e7;
+}
+
+/* Focus effect for accessibility */
+.btn-crud:focus {
+    outline: 2px solid #dee4e7;
+}
+
+/* Active state (when the button is clicked) */
+.btn-crud:active {
+    transform: translateY(1px);
+}
+
+.encode-table {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/*CRUD CSS*/
+.table-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    background-color: #dee4e7;
+    margin-left: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 50px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.popup-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    opacity: 0;
+    border: 3px solid #f1f1f1;
+    z-index: 1000;
+    background-color: white;
+    max-width: 500px;
+    width: 100%;
+    animation: slideIn 0.3s ease-out forwards;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translate(-50%, 100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+.popup-content {
+    padding: 20px;
+    background-color: white;
+}
+
+.popup-content h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.popup-content label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.popup-content input[type="text"],
+.popup-content input[type="date"],
+.popup-content input[type="time"],
+.popup-content textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.popup-content textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.popup-content button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.popup-content button:hover {
+    background-color: #c9302c;
+}
+
+.add-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    opacity: 0;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    background-color: white;
+    max-width: 500px;
+    width: 100%;
+}
+
+#myForm.show {
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+.add-container {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.add-content input,
+.add-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    resize: none;
+}
+
+.add-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.add-submit,
+.add-cancel {
+    width: 48%;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-submit {
+    background-color: #4CAF50;
+    color: white;
+    width: 100%;
+    margin-right: 4%;
+    margin-bottom: 5px;
+    padding: 15px;
+}
+
+.add-cancel {
+    background-color: #f44336;
+    color: white;
+    width: 100%;
+    margin-top: 5px;
+    padding: 15px;
+}
+
+.add-submit:hover {
+    background-color: #45a049;
+}
+
+.add-cancel:hover {
+    background-color: #e53935;
+}
+
+td.description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .table-grid {
+        grid-template-columns: 1fr;
+        padding: 5px;
+        margin-left: 5px;
+    }
+
+    .btn-crud {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .popup-content h2 {
+        font-size: 18px;
+    }
+
+    .popup-content input[type="text"],
+    .popup-content input[type="date"],
+    .popup-content input[type="time"],
+    .popup-content textarea {
+        font-size: 14px;
+    }
+
+    .add-submit,
+    .add-cancel {
+        font-size: 12px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .table-grid {
+        padding: 5px;
+        margin-left: 0;
+    }
+
+    .btn-crud {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+
+    .popup-content h2 {
+        font-size: 16px;
+    }
+
+    .popup-content input[type="text"],
+    .popup-content input[type="date"],
+    .popup-content input[type="time"],
+    .popup-content textarea {
+        font-size: 12px;
+    }
+
+    .add-submit,
+    .add-cancel {
+        font-size: 10px;
+        padding: 8px;
+    }
+}
